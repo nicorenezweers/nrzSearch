@@ -1,0 +1,15 @@
+.git
+.gitignore
+.env
+*.log
+.DS_Store
+target
+web/target
+web/crates
+web/src
+umbrel
+searxng-intern
+openrouter.key*
+ablagen
+statistik.json
+admin.json

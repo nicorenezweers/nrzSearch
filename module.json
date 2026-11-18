@@ -1,0 +1,138 @@
+{
+  "_hilfe": [
+    "Die Module der Ergebnisseite (Instant Answers). Jedes Modul ist eine Datei in public/module/NAME.js.",
+    "an:        true/false - das Modul ein- oder ausschalten.",
+    "ausloeser: Liste regulärer Ausdrücke (ohne Groß-/Kleinschreibung) auf die ganze Suchfrage. Die Gruppen gehen ans Modul.",
+    "platz:     wo das Modul steht: 'haupt' (über den Treffern), 'oben' (über allem) oder 'seite' (rechte Spalte).",
+    "allein:    true - passt dieses Modul, werden die folgenden nicht mehr geprüft. Die Reihenfolge hier ist die Rangfolge.",
+    "Alle anderen Felder sind Einstellungen des Moduls selbst. Die Datei wird bei jeder Suche neu gelesen - kein Neustart nötig.",
+    "einschuebe: Videos und Bilder zwischen den Treffern im Reiter 'Alle' - an, nach (hinter dem wievielten Treffer), anzahl, mindestens (sonst weg)."
+  ],
+  "einschuebe": {
+    "videos": { "an": true, "nach": 2, "anzahl": 3, "mindestens": 2 },
+    "bilder": { "an": true, "nach": 5, "anzahl": 6, "mindestens": 3 }
+  },
+  "module": {
+    "speedtest": {
+      "an": true, "platz": "haupt", "allein": true,
+      "ausloeser": ["^(?:internet[\\s-]?)?speed[\\s-]?test$", "^(?:internet|download)[\\s-]?geschwindigkeit(?:\\s+testen)?$", "^geschwindigkeits?test$", "^bandbreiten?[\\s-]?test(?:en)?$"],
+      "server": "https://speed.cloudflare.com", "sekunden": 8, "verbindungen": 4
+    },
+    "timer": {
+      "an": true, "platz": "haupt", "allein": true,
+      "ausloeser": ["^(?:timer|countdown|kurzzeitwecker|eieruhr)(?:\\s+(?:für\\s+|auf\\s+)?(.+))?$", "^(.+?)\\s+(?:timer|countdown)$"],
+      "standard": 300, "ton": true
+    },
+    "stoppuhr": {
+      "an": true, "platz": "haupt", "allein": true,
+      "ausloeser": ["^(?:stoppuhr|stopuhr|stopwatch|zeit stoppen)$"]
+    },
+    "weltzeit": {
+      "an": true, "platz": "haupt", "allein": true,
+      "ausloeser": ["^(?:uhrzeit|zeit|wie spät ist es|wie spaet ist es|time)(?:\\s+(?:in|im|auf)?\\s*(.+))?$", "^(.+?)\\s+(?:uhrzeit|zeit|time)$"],
+      "ort": "Berlin"
+    },
+    "sonne": {
+      "an": true, "platz": "haupt", "allein": true,
+      "ausloeser": ["^(?:sonnenaufgang|sonnenuntergang|sonnenstand|sonne|sunrise|sunset)(?:\\s+(?:in\\s+)?(.+))?$"],
+      "ort": "Berlin"
+    },
+    "kalender": {
+      "an": true, "platz": "haupt", "allein": true,
+      "ausloeser": ["^(?:kalender|kalendar|kalnder|kalener|calendar|calender)(?:\\s+.*)?$", "^(?:welche\\s+)?(kalenderwoche|kw)(?:\\s+(?:heute|ist\\s+heute|jetzt))?\\??$", "^(feiertage?)(?:\\s+(\\d{4}))?$", "^(?:nächste[rn]?\\s+|naechste[rn]?\\s+)?(feiertag)e?$"],
+      "land": "DE"
+    },
+    "ip": {
+      "an": true, "platz": "haupt", "allein": true,
+      "ausloeser": ["^(?:meine|my|what is my|wie ist meine|was ist meine)?\\s*(?:ip|ip[\\s-]?adresse|ip address|ipv4|ipv6)\\??$"]
+    },
+    "passwort": {
+      "an": true, "platz": "haupt", "allein": true,
+      "ausloeser": ["^(?:passwort|password|kennwort)[\\s-]?(?:generator|generieren|erstellen)(?:\\s+(\\d+))?$", "^(?:zufälliges|sicheres|zufaelliges)\\s+passwort(?:\\s+(\\d+))?$"],
+      "laenge": 20
+    },
+    "farbe": {
+      "an": true, "platz": "haupt", "allein": true,
+      "ausloeser": ["^(#[0-9a-f]{6}|#[0-9a-f]{3})$", "^(rgba?\\([^)]*\\))$", "^(hsla?\\([^)]*\\))$", "^(?:color[\\s-]?picker|farbwähler|farbwaehler|farbcode(?:\\s+konverter)?|farbe(?:n)?\\s+umrechnen)$"]
+    },
+    "kodieren": {
+      "an": true, "platz": "haupt", "allein": true,
+      "ausloeser": ["^(base64|url)[\\s-]?(encode|decode|kodieren|dekodieren|encoder|decoder)?(?:\\s+(.+))?$"]
+    },
+    "json": {
+      "an": true, "platz": "haupt", "allein": true,
+      "ausloeser": ["^json[\\s-]?(?:formatter|formatieren|validator|prüfen|pruefen|beautify)(?:\\s+(.+))?$", "^(\\s*[\\[{][\\s\\S]*[\\]}]\\s*)$"]
+    },
+    "regex": {
+      "an": true, "platz": "haupt", "allein": true,
+      "ausloeser": ["^(?:regex|regexp|regulärer ausdruck|regulaerer ausdruck)(?:[\\s-]?(?:tester|testen|test))?(?:\\s+(.+))?$"]
+    },
+    "subnetz": {
+      "an": true, "platz": "haupt", "allein": true,
+      "ausloeser": ["^(\\d{1,3}(?:\\.\\d{1,3}){3}\\/\\d{1,2})$", "^(?:cidr|subnetz|subnet)(?:[\\s-]?(?:rechner|calculator))?(?:\\s+(.+))?$"]
+    },
+    "plot": {
+      "an": true, "platz": "haupt", "allein": true,
+      "ausloeser": ["^(?:plot|graph|zeichne|funktion)\\s+(.+)$", "^(?:y|f\\(x\\))\\s*=\\s*(.+)$"]
+    },
+    "einheiten": {
+      "an": true, "platz": "haupt", "allein": true,
+      "ausloeser": ["^(-?[\\d.,]+)\\s*([a-zA-Z°µ²³/]+[a-zA-Z0-9°µ²³/]*)\\s+(?:in|nach|zu|to|=)\\s+([a-zA-Z°µ²³/]+[a-zA-Z0-9°µ²³/]*)$", "^(?:einheiten|einheitenrechner|einheiten umrechnen|unit converter)$"]
+    },
+    "finanzrechner": {
+      "an": true, "platz": "haupt", "allein": true,
+      "ausloeser": ["^([\\d.,]+)\\s*%\\s*(?:von|of)\\s*([\\d.,]+)$", "^(prozentrechner|zinsrechner|zinseszinsrechner|zinseszins|kreditrechner|kredit\\s*rechner|tilgungsrechner)$"]
+    },
+    "zufall": {
+      "an": true, "platz": "haupt", "allein": true,
+      "ausloeser": ["^(kopf oder zahl|münzwurf|muenzwurf|münze werfen|muenze werfen|coin flip|flip a coin)$", "^(würfel|wuerfel|würfeln|wuerfeln|roll a die)$", "^(\\d*)d(\\d+)$", "^(?:zufallszahl|random number)(?:\\s+(\\d+)\\s*(?:-|bis)\\s*(\\d+))?$"]
+    },
+    "bpm": {
+      "an": true, "platz": "haupt", "allein": true,
+      "ausloeser": ["^(?:bpm|bpm[\\s-]?(?:tapper|zähler|zaehler|messen)|tap tempo|metronom|metronome)$"]
+    },
+    "snake": { "an": true, "platz": "haupt", "allein": true, "ausloeser": ["^(?:snake|schlange)(?:\\s+(?:spiel|spielen|game))?$"] },
+    "tictactoe": { "an": true, "platz": "haupt", "allein": true, "ausloeser": ["^(?:tic[\\s-]?tac[\\s-]?toe|drei gewinnt|xxo)(?:\\s+(?:spiel|spielen))?$"] },
+    "labyrinth": { "an": true, "platz": "haupt", "allein": true, "ausloeser": ["^(?:labyrinth|maze)[\\s-]?(?:spiel|spielen|game|jagd)?$", "^(?:labyrinth|irrgarten)[\\s-]?jagd$"] },
+    "solitaer": { "an": true, "platz": "haupt", "allein": true, "ausloeser": ["^(?:solitär|solitaer|solitaire|klondike|patience)(?:\\s+(?:spiel|spielen))?$"] },
+    "uebersetzer": {
+      "an": true, "platz": "haupt", "allein": true,
+      "ausloeser": ["\\s(?:auf|in|ins|nach|to|into)\\s+\\p{L}+(?:\\s+(?:übersetzen|übersetzt|translate|translated))?$", "^(?:übersetze|übersetz|uebersetze|translate)\\s", "^(?:übersetzer|uebersetzer|übersetzen|translator|translate|übersetzung)$"],
+      "verzoegerung": 600, "standardZiel": "en"
+    },
+    "rechner": {
+      "an": true, "platz": "haupt", "allein": true,
+      "ausloeser": ["\\d", "^[\\p{L}\\s-]{3,40}$"],
+      "woerter": ["rechner", "taschenrechner", "calculator", "calc", "kalkulator", "rechenmaschine", "onlinerechner"],
+      "fuell": ["online", "google", "öffnen", "oeffnen", "app", "bitte", "der", "ein", "einen", "kostenlos", "free"]
+    },
+    "vergleich": {
+      "an": true, "platz": "haupt", "allein": true,
+      "ausloeser": ["\\s(?:vs\\.?|versus|oder|or|im vergleich zu|verglichen mit|compared to)\\s", "^(?:vergleich|unterschied|vergleiche|compare|difference|was ist besser|welche[rs]? ist besser|which is better)\\s"],
+      "trenner": ["vs\\.?", "versus", "oder", "or", "im vergleich zu", "verglichen mit", "compared to"],
+      "vorne": ["vergleich", "vergleiche", "unterschied", "unterschiede", "compare", "difference", "was ist besser", "welche[rs]? ist besser", "which is better"],
+      "maxWoerter": 3
+    },
+    "kurs": {
+      "an": true, "platz": "haupt", "allein": false,
+      "ausloeser": ["."]
+    },
+    "wetter": {
+      "an": true, "platz": "haupt", "allein": false,
+      "ausloeser": ["^(?:wetter|wetteraussicht|wettervorhersage|weather)(?:\\s+(?:in|für|fuer|von)?\\s*(.+))?$", "^(.+?)\\s+(?:wetter|weather)$"],
+      "ort": "Berlin"
+    },
+    "ki": {
+      "an": true, "platz": "haupt", "allein": false,
+      "ausloeser": ["^(.{3,200})$"],
+      "mindestWoerter": 2, "hoehe": 260,
+      "nicht": ["^(?:wetter|weather|uhrzeit|zeit|kurs|aktie)\\b"]
+    },
+    "info": {
+      "an": true, "platz": "oben", "allein": true,
+      "ausloeser": ["^(?:wetter(?:aussicht)?\\s+)?([\\p{L}][\\p{L}\\p{M}\\s'’.-]{0,59})$"],
+      "wetter": true, "karte": true, "nachrichten": true, "nachrichtenTage": 7,
+      "nicht": ["wetter", "wetteraussicht", "wettervorhersage", "weather", "uhrzeit", "zeit", "timer", "stoppuhr"]
+    }
+  }
+}

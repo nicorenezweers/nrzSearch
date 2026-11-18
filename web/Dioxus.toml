@@ -1,0 +1,13 @@
+[application]
+name = "nrzsearch_web"
+
+[web.app]
+title = "nrzSearch"
+
+[serve]
+port = 8189
+
+[web.wasm_opt]
+# Kleinstes WASM (schneller geladen); Debug-Infos raus.
+level = "z"
+debug = false

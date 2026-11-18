@@ -1,0 +1,40 @@
+# SearXNG fuer nrzSearch - nur intern erreichbar (nrzSearch fragt per JSON).
+# Gilt fuer die mitgelieferte Instanz im Umbrel-Paket und fuer die lokale Entwicklung
+# (scripts/searxng-dev.sh). Der geheime Schluessel kommt aus SEARXNG_SECRET.
+use_default_settings: true
+
+general:
+  instance_name: "nrzSearch"
+  enable_metrics: false
+
+search:
+  # 2 = streng. nrzSearch schickt ohnehin immer safesearch=2 und filtert selbst nach.
+  safe_search: 2
+  autocomplete: "duckduckgo"
+  default_lang: "de-DE"
+  formats:
+    - html
+    - json
+
+server:
+  bind_address: "0.0.0.0"
+  port: 8080
+  secret_key: "wird-durch-SEARXNG_SECRET-ersetzt"
+  limiter: false
+  public_instance: false
+  image_proxy: false
+  method: "GET"
+
+ui:
+  static_use_hash: true
+
+outgoing:
+  # Kurze Fristen: nrzSearch zeigt, was schnell da ist, und wartet nicht auf Nachzuegler.
+  request_timeout: 3.0
+  max_request_timeout: 8.0
+  pool_connections: 100
+  pool_maxsize: 20
+  enable_http2: true
+
+# Die Suchmaschinen waehlt nrzSearch je Anfrage selbst (engines=...); Yandex fragt es nie
+# (schwache sichere Suche, viel fremdsprachiger Spam).

@@ -1,0 +1,15 @@
+.DS_Store
+.env
+*.log
+# Das Rust-Zielverzeichnis (wird beim Bauen erzeugt)
+target
+openrouter.key*
+konten
+ablagen
+statistik.json
+admin.json
+.claude/
+/public
+/searxng-intern
+/web/assets/tailwind.css
+/dist

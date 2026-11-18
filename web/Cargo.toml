@@ -1,0 +1,60 @@
+[workspace]
+members = [".", "crates/icons", "crates/tw_merge/tw_merge", "crates/tw_merge/tw_merge_variants"]
+resolver = "2"
+
+[package]
+name = "nrzsearch_web"
+version = "1.0.0"
+edition = "2024"
+publish = false
+license = "MIT"
+description = "nrzSearch - Weboberflaeche in Rust (Dioxus/WASM, nrzUI)"
+
+[dependencies]
+dioxus = { version = "0.7.10", features = ["web"] }
+icons = { path = "crates/icons", features = ["dioxus"] }
+tw_merge = { path = "crates/tw_merge/tw_merge" }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+strum = { version = "0.28", features = ["derive"] }
+urlencoding = "2"
+gloo-timers = { version = "0.3", features = ["futures"] }
+js-sys = "0.3"
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+futures = { version = "0.3", default-features = false, features = ["std", "async-await"] }
+web-sys = { version = "0.3", features = [
+  "Window", "Location", "History", "Document", "Element", "HtmlElement", "HtmlInputElement",
+  "HtmlTextAreaElement", "HtmlSelectElement", "HtmlCanvasElement", "CanvasRenderingContext2d",
+  "HtmlImageElement", "HtmlMediaElement", "HtmlAudioElement", "Event", "EventTarget", "MouseEvent",
+  "KeyboardEvent", "TouchEvent", "Touch", "TouchList", "PointerEvent", "WheelEvent", "DragEvent",
+  "DataTransfer", "File", "FileList", "FileReader", "Blob", "BlobPropertyBag", "Url",
+  "Request", "RequestInit", "RequestMode", "RequestCredentials", "Response", "Headers",
+  "ReadableStream", "ReadableStreamDefaultReader", "AbortController", "AbortSignal",
+  "EventSource", "MessageEvent", "Storage", "Navigator", "Clipboard", "Crypto", "Performance",
+  "ScrollToOptions", "ScrollBehavior", "ScrollIntoViewOptions", "DomRect", "DomTokenList",
+  "AudioContext", "BaseAudioContext", "AudioDestinationNode", "AudioNode", "AudioParam",
+  "OscillatorNode", "GainNode", "SpeechSynthesis", "SpeechSynthesisUtterance",
+  "Geolocation", "PopStateEvent", "TextDecoder", "XmlHttpRequest", "XmlHttpRequestUpload",
+  "ProgressEvent", "IntersectionObserver", "IntersectionObserverEntry", "ResizeObserver",
+  "ResizeObserverEntry", "CssStyleDeclaration", "VisibilityState", "HtmlDocument", "TextDecodeOptions",
+  "ImageBitmap", "ShareData", "IdbFactory", "IdbOpenDbRequest", "IdbRequest", "IdbDatabase", "IdbTransaction",
+  "IdbObjectStore", "ScrollLogicalPosition",
+  "AddEventListenerOptions", "RequestCache", "XmlHttpRequestEventTarget",
+] }
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+
+[profile.wasm-dev]
+inherits = "dev"
+opt-level = 1
+
+[profile.server-dev]
+inherits = "dev"
+
+[profile.android-dev]
+inherits = "dev"
