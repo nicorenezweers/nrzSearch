@@ -2,7 +2,7 @@ manifestVersion: 1
 id: nrz-nrz-search
 category: Utilities
 name: nrzSearch
-version: "1.0.0"
+version: "1.0.1"
 tagline: "Eigene Suchmaschine wie Google - komplett in Rust, mit eingebautem SearXNG"
 icon: http://100.78.107.162:8390/nicorenezweers/nrzStore/raw/branch/main/nrz-nrz-search/icon.png
 port: 8188
@@ -48,7 +48,7 @@ description: >-
   OpenRouter-Schluessel fuer Dieter). Die erste Installation von SearXNG
   dauert etwa eine Minute.
 releaseNotes: >-
-  Neues Logo (Rabe in der Such-Lupe), auch als Symbol im Browser-Tab.
+  Sicherheits-Updates: rustls-webpki 0.103.16, tokio 1.54.1, url 2.5.9, cookie 0.18.3.
 developer: nrz
 website: http://100.78.107.162:8390/nicorenezweers/nrzSearch
 submitter: nrz
